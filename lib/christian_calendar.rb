@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-file: christian_calendar.rb
+#file: christian_calendar.rb
 
 require 'easter'
 require 'chronic'
