@@ -1,15 +1,12 @@
 #!/usr/bin/env ruby
 
-#file: christian_calendar.rb
+# file: christian_calendar.rb
 
 require 'easter'
 require 'chronic'
 
-MINUTE = 60
-HOUR = MINUTE * 60
-DAY = HOUR * 24
-WEEK = DAY * 7
-MONTH = DAY * 30
+
+WEEK = 7
 
 class ChristianCalendar
 
@@ -18,7 +15,7 @@ class ChristianCalendar
   end
 
   def epiphany()
-    christmas(@year - 1) + DAY * 12
+    christmas(@year - 1) + 12
   end
 
   def st_davids_day(year=@year)
@@ -32,7 +29,7 @@ class ChristianCalendar
   end
 
   def mothering_sunday()
-    (Chronic.parse('sunday', now: ash_wednesday) + WEEK * 3).to_date
+    Chronic.parse('sunday', now: ash_wednesday).to_date + WEEK * 3
   end
 
   def st_patricks_day(year=@year)
@@ -81,7 +78,7 @@ class ChristianCalendar
   alias saint_andrews_day st_andrews_day
 
   def advent_sunday()    
-    (Chronic.parse('sunday', now: christmas) - WEEK * 4).to_date
+    Chronic.parse('sunday', now: christmas).to_date - WEEK * 4
   end
 
   def christmas(year=@year)
