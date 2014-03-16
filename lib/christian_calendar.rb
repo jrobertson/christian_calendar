@@ -22,7 +22,7 @@ class ChristianCalendar
   end
 
   def st_davids_day(year=@year)
-    Time.local(year, 3, 1)
+    Date.new(year, 3, 1)
   end
 
   alias saint_davids_day st_davids_day
@@ -32,11 +32,11 @@ class ChristianCalendar
   end
 
   def mothering_sunday()
-    Chronic.parse('sunday', now: ash_wednesday) + WEEK * 3
+    (Chronic.parse('sunday', now: ash_wednesday) + WEEK * 3).to_date
   end
 
   def st_patricks_day(year=@year)
-    Time.local(year, 3, 17)
+    Date.new(year, 3, 17)
   end
 
   alias saint_patricks_day st_patricks_day
@@ -57,11 +57,11 @@ class ChristianCalendar
 
   def whit_sunday()
     Chronic.parse('sunday', \
-        now: Chronic.parse('15 May', now: Time.local(@year,1,1)))
+        now: Chronic.parse('15 May', now: Time.local(@year,1,1))).to_date
   end
 
   def trinity_sunday()
-    Chronic.parse('sunday', now: pentecost)
+    Chronic.parse('sunday', now: pentecost).to_date
   end
 
   def ascension_day()
@@ -75,17 +75,17 @@ class ChristianCalendar
   alias pentecost_sunday pentecost
 
   def st_andrews_day(year=@year)
-    Time.local(year, 11, 30)
+    Date.new(year, 11, 30)
   end
 
   alias saint_andrews_day st_andrews_day
 
   def advent_sunday()    
-    Chronic.parse('sunday', now: christmas) - WEEK * 4
+    (Chronic.parse('sunday', now: christmas) - WEEK * 4).to_date
   end
 
   def christmas(year=@year)
-    Time.local(year, 12, 25)
+    Date.new(year, 12, 25)
   end
 
   def to_h
