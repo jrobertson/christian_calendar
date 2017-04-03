@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'christian_calendar'
-  s.version = '0.1.5'
+  s.version = '0.1.6'
   s.summary = 'Returns the date for Easter, Ash Wednesday, Good Friday, Trinity Sunday, and more'
   s.description = "Returns the dates for Epiphany, St David's Day, Ash Wednesday, Mothering Sunday, St Patrick's Day, Palm Sunday, Good Friday, Easter Sunday, Whit Sunday, Trinity Sunday, Ascension Day, Pentecost Sunday, St Andrews Day, Advent Sunday, and Christmas day"
   s.authors = ['James Robertson']

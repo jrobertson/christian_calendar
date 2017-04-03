@@ -58,7 +58,13 @@ class ChristianCalendar
   end
   
   def to_s()
-    to_h.map {|k,v| "%+16s: %s" % [k,v.strftime("%d-%b")]}.join("\n")
+    
+    a = to_h.sort_by{|k, v| v.to_datetime}.map do |k,v| 
+      label = k.to_s.sub(/s(?=_)/,"'s").gsub('_', ' ').split.map(&:capitalize).join(' ')
+      "%+16s: %s" % [label,v.strftime("%d-%b-%Y")]
+    end
+    
+    a.join("\n")
   end
 
   def trinity_sunday()
