@@ -56,6 +56,10 @@ class ChristianCalendar
     Chronic.parse('sunday', \
         now: Chronic.parse('15 May', now: Time.local(@year,1,1))).to_date
   end
+  
+  def to_s()
+    to_h.map {|k,v| "%+16s: %s" % [k,v.strftime("%d-%b")]}.join("\n")
+  end
 
   def trinity_sunday()
     Chronic.parse('sunday', now: pentecost).to_date
