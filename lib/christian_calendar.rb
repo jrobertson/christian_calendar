@@ -94,10 +94,15 @@ class ChristianCalendar
   def christmas(year=@year)
     Date.new(year, 12, 25)
   end
+  
+  def query(s)
+    key = s.downcase.gsub(/\W+/,'_').to_sym
+    self.to_h[key]
+  end
 
   def to_h
     a = %i(epiphany st_davids_day ash_wednesday mothering_sunday)\
-    + %i(st_patricks_day palm_sunday good_friday easter_sunday)\
+    + %i(st_patricks_day palm_sunday good_friday easter easter_sunday)\
     + %i(whit_sunday trinity_sunday ascension_day pentecost st_andrews_day)\
     + %i(advent_sunday christmas)
 
